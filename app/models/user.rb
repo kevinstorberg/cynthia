@@ -4,7 +4,6 @@ class User < ApplicationRecord
   validates :role, :inclusion => { :in => %{ admin } }, :allow_nil => true
   has_secure_password
 
-
   def full_name
     "#{first_name} #{last_name}"
   end
