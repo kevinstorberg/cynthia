@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
-    @comment = Comment.new 
+    @comment = Comment.new
   end
 
   def new
@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      redirect_to root_url
+      redirect_to blogs_path
 
     else
       render :new
