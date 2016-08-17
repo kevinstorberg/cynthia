@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cynthia Baeza</title>
+    <title><% if controller.controller_name == 'pages' %>
+              <%= "#{controller.action_name.capitalize}" %> |
+
+           <% else %>
+              <% unless controller.controller_name == 'users' || controller.controller_name == 'sessions' || controller.controller_name == 'welcome' %>
+                  <%= "#{controller.controller_name.capitalize}" %> |
+              <% end %>
+
+           <% end %>
+              Cynthia Baeza
+    </title>
+
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +24,8 @@
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
+
+
         <div class="navbar-header">
           <button type="button" id="navbar-toggle" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -23,17 +36,30 @@
           <a class="navbar-brand" href="<%= root_url %>">Cynthia Baeza</a>
         </div><!-- .navbar-header -->
 
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
 
-        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <% if current_user %>
-              <li><%= link_to "Log Out", logout_path %></li>
-            <% else %>
-              <li><%= link_to "Sign Up", signup_url %></li>
-              <li><%= link_to "Log In", login_url %></li>
-            <% end %>
-          </ul>
-        </div> <!-- .collapse .navbar-collapse .navbar-right -->
+          <div class="navbar-left">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "About", 'about' %></li>
+              <li><%= link_to "Blogs", blogs_path %></li>
+              <li><%= link_to "Contact", 'contact' %></li>
+            </ul>
+          </div> <!-- .navbar-left -->
+
+
+          <div class="navbar-right">
+            <ul class="nav navbar-nav">
+              <% if current_user %>
+                <li><%= link_to "Logged In As #{current_user.full_name}", root_url %></li>
+                <li><%= link_to "Log Out", logout_path %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", signup_url %></li>
+                <li><%= link_to "Log In", login_url %></li>
+              <% end %>
+            </ul>
+          </div> <!-- .navbar-right -->
+
+        </div><!-- .collapse .navbar-collapse -->
       </div><!-- .container-fluid -->
     </nav>
 
