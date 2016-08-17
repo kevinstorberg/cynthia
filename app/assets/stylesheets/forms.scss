@@ -1,0 +1,19 @@
+.form-container {
+    height: 100%;
+    margin-left: calc(50% - 175px);
+    margin-top: 100px;
+    width: 100%;
+}
+
+.form-field {
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  width: 350px;
+}
+
+#submit-form {
+  // border: 1px solid blue;
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
+}

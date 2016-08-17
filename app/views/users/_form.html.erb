@@ -1,10 +1,11 @@
-<%= form_for(@user) do |f| %>
+<div class="form-container"
+  <%= form_for(@user) do |f| %>
+    <%= f.text_field :first_name, placeholder: "First Name", class: "form-field" %><br>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: "form-field" %><br>
+    <%= f.text_field :email, placeholder: "E-Mail", class: "form-field" %><br>
+    <%= f.password_field :password, placeholder: "Password", class: "form-field" %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-field" %><br>
 
-  <%= f.text_field :first_name, placeholder: "First Name" %>
-  <%= f.text_field :last_name, placeholder: "Last Name" %>
-  <%= f.text_field :email, placeholder: "E-Mail" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-
-  <%= f.submit "Submit" %>
-<% end %>
+    <%= f.submit "Sign Up", id: "submit-form", class: "form-field" %>
+  <% end %>
+</div>
